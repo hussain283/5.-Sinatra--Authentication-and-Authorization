@@ -1,0 +1,22 @@
+<h1>Sign Up</h1>
+
+<% unless @user.errors.blank? %>
+  <p><%= @user.errors.full_messages %>
+<% end %>
+
+<form id="sign-up" method="post" action="/users/create">
+  <label class="label" for="name">Name</label>
+  <input type="text" name="user[name]" placeholder="e.g., joe" value="<%= @user.name %>" >
+  <br>
+
+  <label class="label" for="email">Email</label>
+  <input type="email" name="user[email]" placeholder="e.g., me@example.com" value="<%= @user.email %>" >
+  <br>
+
+  <label class="label" for="password">Password</label>
+  <input type="password" name="user[password_hash]" placeholder="6 or more characters" value="<%= @user.password_hash %>">
+  <br>
+
+  <div class="submit"><input type="submit" value="Sign Up"></div>
+</form>
+

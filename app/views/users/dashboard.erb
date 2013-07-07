@@ -1,0 +1,7 @@
+<h1>Welcome <%= @user.name %></h1>
+
+<% @users.each do |user| %>
+  <% unless user == current_user %>
+    <%= erb :'users/_user', locals: {:user => user} %>
+  <% end %>
+<% end %>
